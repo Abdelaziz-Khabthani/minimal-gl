@@ -46,24 +46,10 @@ public class Main {
             0.5f, -0.5f, 0.0f,      //  Bottom  Right   Front   1
             -0.5f, -0.5f, 0.0f,     //  Bottom  Left    Front   2
             -0.5f, 0.5f, 0.0f,      //  Top     Left    Front   3
-            0.5f, 0.5f, -0.5f,      //  Top     Right   Back    4
-            0.5f, -0.5f, -0.5f,     //  Bottom  Right   Back    5
-            -0.5f, -0.5f, -0.5f,    //  Bottom  Left    Back    6
-            -0.5f, 0.5f, -0.5f      //  Top     Left    Back    7
     };
     private int indices[] = {
             0, 1, 3,
             1, 2, 3,
-            4, 0, 7,
-            0, 3, 7,
-            4, 5, 7,
-            5, 6, 7,
-            5, 1, 6,
-            1, 2, 6,
-            4, 5, 0,
-            5, 1, 0,
-            7, 6, 2,
-            6, 2, 3
     };
 
     public static void main(String[] args) throws IOException {
