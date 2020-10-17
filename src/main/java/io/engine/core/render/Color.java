@@ -1,4 +1,4 @@
-package io.engine.util;
+package io.engine.core.render;
 
 public class Color {
     public static final Color TRANSPARENT = new Color(0.0f, 0.0f, 0.0f, 0.0f);
