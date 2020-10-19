@@ -11,6 +11,8 @@ import org.joml.Vector4f;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 import static org.lwjgl.opengl.GL20.*;
@@ -18,8 +20,9 @@ import static org.lwjgl.opengl.GL20.*;
 public class ShaderComponent extends Component {
     private String vertexShaderLocation;
     private String fragmentShaderLocation;
-
     private int shaderProgramId;
+
+    private Map<String, Float> uniforms = new HashMap<>();
 
     public ShaderComponent(final String vertexShaderLocation, final String fragmentShaderLocation) {
         this.vertexShaderLocation = vertexShaderLocation;
@@ -89,37 +92,12 @@ public class ShaderComponent extends Component {
         }
     }
 
-    public void sendVariableToPipeLine(String variableName, float value) {
+    public void sendValue(String variableName, float value) {
         Objects.requireNonNull(variableName, "Shader uniform Variable name should not be null");
+        uniforms.put(variableName, value);
 
         final int fromCpuUniform = glGetUniformLocation(shaderProgramId, variableName);
         glUniform1f(fromCpuUniform, value);
-    }
-
-    public void sendValue(String variableName, Vector2f value) {
-        Objects.requireNonNull(variableName, "Shader uniform Variable name should not be null");
-
-        final int fromCpuUniform = glGetUniformLocation(shaderProgramId, variableName);
-        glUniform2f(fromCpuUniform, value.x(), value.y());
-    }
-
-    public void sendValue(String variableName, Vector3f value) {
-        Objects.requireNonNull(variableName, "Shader uniform Variable name should not be null");
-
-        final int fromCpuUniform = glGetUniformLocation(shaderProgramId, variableName);
-        glUniform3f(fromCpuUniform, value.x(), value.y(), value.z());
-    }
-
-    public void sendValue(String variableName, Vector4f value) {
-        Objects.requireNonNull(variableName, "Shader uniform Variable name should not be null");
-
-        final int fromCpuUniform = glGetUniformLocation(shaderProgramId, variableName);
-        glUniform4f(fromCpuUniform, value.x(), value.y(), value.z(), value.w);
-    }
-
-    @Override
-    public void update() {
-        glUseProgram(shaderProgramId);
     }
 
     public String getFragmentShaderLocation() {

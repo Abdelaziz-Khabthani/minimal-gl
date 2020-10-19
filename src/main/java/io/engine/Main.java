@@ -63,7 +63,7 @@ public class Main {
     private void initGl() {
         GL.createCapabilities();
         glViewport(0, 0, 800, 800);
-        // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
         glClearColor(Color.BLACK.getRed(), Color.BLACK.getGreen(), Color.BLACK.getBlue(), Color.BLACK.getAlpha());
     }
 
@@ -113,10 +113,11 @@ public class Main {
             double time = glfwGetTime();
             float sin = (float) ((Math.cos(time) + 1) / 2);
 
-            shaderComponent.sendValue("fromCpu", new Vector4f(Color.GREEN.getRed(), sin, Color.GREEN.getBlue(), 1.0f));
+            shaderComponent.sendValue("fromCpu", new Vector4f(Color.GREEN.getRed(), 1f, Color.GREEN.getBlue(), 1.0f));
 
             glBindVertexArray(vao);
-            glDrawElements(GL_TRIANGLES, indices.length, GL_UNSIGNED_INT, 0);
+            //glDrawElements(GL_TRIANGLES, indices.length, GL_UNSIGNED_INT, 0);
+            glDrawArrays(GL_PATCHES , 0, vertices.length);
             glBindVertexArray(0);
 
             glfwSwapBuffers(window);

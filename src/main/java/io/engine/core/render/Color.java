@@ -13,7 +13,7 @@ public class Color {
     private float blue;
     private float alpha;
 
-    private Color(float red, float green, float blue, float alpha) {
+    private Color(final float red, final float green, final float blue, final float alpha) {
         this.red = red;
         this.green = green;
         this.blue = blue;
@@ -24,7 +24,7 @@ public class Color {
         return red;
     }
 
-    public void setRed(float red) {
+    public void setRed(final float red) {
         this.red = red;
     }
 
@@ -32,7 +32,7 @@ public class Color {
         return green;
     }
 
-    public void setGreen(float green) {
+    public void setGreen(final float green) {
         this.green = green;
     }
 
@@ -40,7 +40,7 @@ public class Color {
         return blue;
     }
 
-    public void setBlue(float blue) {
+    public void setBlue(final float blue) {
         this.blue = blue;
     }
 
@@ -48,7 +48,7 @@ public class Color {
         return alpha;
     }
 
-    public void setAlpha(float alpha) {
+    public void setAlpha(final float alpha) {
         this.alpha = alpha;
     }
 }

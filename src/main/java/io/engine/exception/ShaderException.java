@@ -1,11 +1,11 @@
 package io.engine.exception;
 
 public class ShaderException extends RuntimeException{
-    public ShaderException(String message, Throwable cause) {
+    public ShaderException(final String message, final Throwable cause) {
         super(message, cause);
     }
 
-    public ShaderException(String message) {
+    public ShaderException(final String message) {
         super(message);
     }
 }

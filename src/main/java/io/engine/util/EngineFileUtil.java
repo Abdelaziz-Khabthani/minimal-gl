@@ -8,7 +8,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
-public abstract class EngineFileUtil {
+public final class EngineFileUtil {
 
     private EngineFileUtil() {
     }

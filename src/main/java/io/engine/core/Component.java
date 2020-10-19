@@ -1,34 +1,29 @@
 package io.engine.core;
 
+import io.engine.util.EngineIdUtil;
+
 public abstract class Component {
+    public String id;
     private boolean enabled;
-    private int priority;
 
     public Component() {
+        this.id = EngineIdUtil.generateUniqueId(EngineIdUtil.EngineIdType.COMPONENT);
         this.enabled = true;
-        this.priority = 0;
     }
 
-    public abstract void update();
-
-    public Component(boolean enabled, int priority) {
+    public Component(final boolean enabled) {
         this.enabled = enabled;
-        this.priority = priority;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public boolean isEnabled() {
         return enabled;
     }
 
-    public void setEnabled(boolean enabled) {
+    public void setEnabled(final boolean enabled) {
         this.enabled = enabled;
-    }
-
-    public int getPriority() {
-        return priority;
-    }
-
-    public void setPriority(int priority) {
-        this.priority = priority;
     }
 }
